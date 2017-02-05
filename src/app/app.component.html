@@ -2,13 +2,17 @@
   {{title}}
 
   <ul>
-    <!-- With * in *ngFor, <li> is considered a template for the message and 
+    <li *ngFor="let message of mail.messages">
+      {{message.text}}
+    </li>
+  </ul>
+
+  <!-- With * in *ngFor, <li> is considered a template for the message and 
       is reused based on the passed in information -->
 
-    <!-- When taking element property or an input, wrapping it with [] is required-->
+  <!-- When taking element property or an input, wrapping it with [] is required-->
 
-    <app-simple-form *ngFor="let message of mail.messages" [message]="message">
-    </app-simple-form>
-  </ul>
+  <app-simple-form *ngFor="let message of mail.messages" [message]="message.text" (update)="onUpdate(message.id,$event.text)">
+  </app-simple-form>
 
 </h1>
