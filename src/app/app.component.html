@@ -1,10 +1,12 @@
 <h1>
   {{title}}
 
-  <div>
-    <app-simple-form></app-simple-form>
-  </div>
+  <ul>
+    <!-- With * in *ngFor, <li> is considered a template for the message and 
+      is reused based on the passed in information -->
+    <li *ngFor="let message of mail.messages">
+      {{message}}
+    </li>
+  </ul>
 
-  {{mail.message}}
-  <br/> {{api}}
 </h1>
