@@ -4,9 +4,11 @@
   <ul>
     <!-- With * in *ngFor, <li> is considered a template for the message and 
       is reused based on the passed in information -->
-    <li *ngFor="let message of mail.messages">
-      {{message}}
-    </li>
+
+    <!-- When taking element property or an input, wrapping it with [] is required-->
+
+    <app-simple-form *ngFor="let message of mail.messages" [message]="message">
+    </app-simple-form>
   </ul>
 
 </h1>
