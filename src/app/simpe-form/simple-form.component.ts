@@ -9,7 +9,8 @@ import { Component, OnInit, Input } from '@angular/core';
       {{message}}
 
       <!-- #myInput is a Reference to the input element -->
-      <input #myInput type='text'>
+      <!-- ngModel's () represents and event, [] represents inputs, Two way binding -->
+      <input #myInput type='text' [(ngModel)]="message">
     
       <!-- Creates a (click) event and assigns a method created in the class -->
       <!-- Button click event is taken from the $event, event can be click, mouseover or anything -->
@@ -21,7 +22,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SimpleFormComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    setInterval(() => this.message = Math.random().toString(), 1000);
+  }
 
   @Input() message;
 
