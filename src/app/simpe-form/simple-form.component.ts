@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 @Component({
+  //encapsulation: ViewEncapsulation.Native,
   selector: 'app-simple-form',
   template: `
     <div>
@@ -17,6 +18,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
     </div>
   `,
   styles: [`
+    // host represents the selector
+    // styles defined inside the component is isolated to that component but global styles get applied to the components
+    // that can be stopped using native view encapsulation
+
     :host{
       display:flex;
       flex-direction:column;
