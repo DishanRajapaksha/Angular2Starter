@@ -9,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
       <input #myInput type='text'>
     
       <!-- Creates a (click) event and assigns a method created in the class -->
-      <button (click)="onClick(myInput.value)">Click Me!</button>
+      <!-- Button click event is taken from the $event, event can be click, mouseover or anything -->
+      <button (click)="onClick($event, myInput.value)">Click Me!</button>
     
     </div>
   `,
@@ -19,8 +20,8 @@ export class SimpleFormComponent implements OnInit {
 
   constructor() { }
 
-  onClick(value) {
-    // console.log('Clicked!!!');
+  onClick(event, value) {
+    console.log(event);
     console.log(value);
   }
 
